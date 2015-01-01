@@ -36,7 +36,11 @@ $$D(I_{rgb}) = I_{grey}$$
  \item Обесцвечивание (desaturtaion): $D_{desaturation}(I_{rgb}) = \frac{D_{min}(I_{rgb}) + D_{max}(I_{rgb})}{2}$
 \end{enumerate}
 
-%TODO вставить картинку сравнения методов обесцвечивания
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.75\linewidth,keepaspectratio]{images/th_desaturate}
+\caption{Сравнение методов обесцвечивания}
+\end{figure}
 
 \begin{remark}
 Наилучший результат для средне-статистического изображения (с гистограммой близкой к нормальной) получается при использование 5-го и последнего способов. Под наилучшим результатом понимается сохранение яркости (компоненты value в модели HSV) цветов исходного изображения.
@@ -175,6 +179,12 @@ $$g(w)=\dfrac{\sum\limits_{p\in w} p}{\lvert w\rvert}$$
 \subsection{Волновая скелетизация}
 Опишем алгоритм построения скелета растрового контурного изображения.
 
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth,keepaspectratio]{images/th_wave}
+\caption{Распространение волны: а)--ромбовидная, б)--квадратная, в)-сферическая }
+\end{figure}
+
 %\begin{alg}
 Зададим начальные условия. В качестве начальной волны подойдет любая точка из~$F$. 
 Имеем следующую начальную конфигурацию:\\
@@ -228,14 +238,19 @@ $$|F_1|=|F_0\setminus\{p:p\in w, w\in W_0\}| = |\{p\}\setminus\{p:p\in w_0\}|=|\
 \end{enumerate}
 Следовательно такого $l$ не существует, и алгоритм сходится для всякой непустой заполненной области без изолированных точек.
 \end{proof}
-\begin{figure}[H]
-%\includegraphics[width=\linewidth,keepaspectratio]{pic1_}
-\caption{Схема разбиения графа «особыми» точками}
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth,keepaspectratio]{images/th_wave_graph}
+\caption{Распространение волны по области, на последнем изображении представлен полученный граф}
 \end{figure}
-%TODO картинка показывающая переход от монохромного изображения к графу
 
 \subsection{Построение модели  $\mathfrak{M}$ для графа $G$}
 Прежде чем дать форммальное описание алгоритма, рассмотрим как он работает неформально:
+
+\begin{figure}[h]
+\includegraphics[width=\linewidth,keepaspectratio]{images/th_peregib}
+\caption{Схема разбиения графа «особыми» точками}
+\end{figure}
 
 \begin{enumerate}
 \item Для каждого простого пути выполняется:
@@ -255,8 +270,7 @@ $$|F_1|=|F_0\setminus\{p:p\in w, w\in W_0\}| = |\{p\}\setminus\{p:p\in w_0\}|=|\
 \end{enumerate}
 
 \begin{remark}
-Стоит отметить что разбиение на дуги, как правило, выполняется на интерполированном графе в котором часть узлов 
-удаленно в силу их избыточности. 
+Стоит отметить что разбиение на дуги, как правило, выполняется на интерполированном графе в котором часть узлов удаленно в силу их избыточности. 
 \end{remark}
 
 \begin{remark}
@@ -525,10 +539,8 @@ $$V_{rel}, V_{arc} \subseteq V$$
 %\begin{definition}
 %Определим множество точек разбиение подпути $P = v_1, \dots v_n$ по углу сгиба в окрестности $\epsilon\in Z^+$
 %$$V_{spiral}^P = \left\{ \min_{|r(h, v)|}(v_i, v_i+1)\;|\;Sign(r(h,v_i)) \neq Sign(r(h,v_{i+1})) \wedge i=1,n-1 \right\}$$
-%%TODO картинка цепи с острым углом
 %\end{definition}
 
-%TODO картинка показывающая переход от графа к дугам и связям дуг
 
 %\end{alg}
 %\chapter{Оформление различных элементов} \label{chapt1}
