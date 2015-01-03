@@ -1,5 +1,336 @@
 \appendix
 \chapter{Структура БД} \label{AppendixA}
+\noindent
+\subsection*{ОБРАЗЦЫ}
+\noindent
+Таблица \textbf{Smpl\_Arc}, задающая совокупность дуг образца
+\small
+\begin{enumerate}
+\item id		        	идентификатор дуги (int 4);
+\item min\_sector           	минимально возможный угол сектора дуги (int 4);
+\item max\_sector          	максимально возможный угол сектора дуги (int 4);
+\item clockwise            	направление обхода (1 – по солнцу; -1 – против солнца; 0 – неопределенно) (int 4);
+\item bran\_beg            	кол-во ветвлений на начале
+\item bran\_end            	кол-во ветвлений на конце
+\item quan\_circle        	кол-во циклов, включающих дугу
+\end{enumerate}
+\normalsize
+
+\noindent 
+Таблица Smpl\_Arcs\_Lists, задающая идентификаторы списков дуг образца
+\small
+\begin{enumerate}
+\item id		       	идентификатор списка дуг (int 4);
+\end{enumerate}
+\normalsize
+
+
+\noindent 
+Таблица Smpl\_Arcs\_Lists\_ Arcs, задающая списки дуг образца
+\small
+\begin{enumerate}
+\item id\_arcslist		идентификатор списка дуг (int 4);
+\item id\_arc		идентификатор дуги (int 4);
+\item proportion		относительная величина дуги		
+\end{enumerate}
+\normalsize
+
+
+\noindent 
+Таблица Smpl\_Relations, задающая совокупность связей дуг образца
+\small
+\begin{enumerate}
+\item id		         	идентификатор связи двух дуг (int 4);
+\item id\_arc1                 	идентификатор первой дуги (int 4);
+\item id\_arc2                 	идентификатор второй дуги (int 4);
+\item min\_angle           	минимально возможный угол пересечения дуг (int 4);
+\item max\_angle          	максимально возможный угол пересечения дуг (int 4);
+\item type			тип связи (0: конец – начало, 1: конец – конец, 2: начало - начало)
+\end{enumerate}
+\normalsize
+
+
+\noindent 
+Таблица Smpl\_Relations\_Lists, задающая идентификаторы списков связей дуг образца
+\small
+\begin{enumerate}
+\item id		       	идентификатор списка связей дуг (int 4);
+\end{enumerate}
+\normalsize
+
+\noindent 
+Таблица Smpl\_Relations\_Lists\_Relations, задающая списки связей дуг образца
+\small
+\begin{enumerate}
+\item id\_relationslist	идентификатор списка связей дуг (int 4);
+\item id\_relation		идентификатор связи двух дуг (int 4);
+\end{enumerate}
+\normalsize
+
+
+\noindent 
+Таблица Smpl\_Parts, задающая части образца
+\small
+\begin{enumerate}
+\item id			идентификатор части образца (int 4);
+\item id\_arcslist		идентификатор списка дуг для исследуемого изображения (int 4);
+\item id\_relationslist	идентификатор списка связей дуг для исследуемого изображения (int 4);
+\item hor\_angle		угол к горизонту для первой дуги в списке id\_arcslist (int 4);
+\item proportion		пропорция (float 8)
+\end{enumerate}	
+\normalsize
+
+
+\noindent 
+Таблица Smpl\_Parts\_Relations, задающая связи частей образца
+\small
+\begin{enumerate}
+\item id			              идентификатор символа (int 4);
+\item id\_part1                		идентификатор части образца (int 4);
+\item id\_part2                 		идентификатор части образца (int 4);
+\item min\_pos\_angle		(int 4);
+\item max\_pos\_angle		(int 4);
+\item min\_central\_angle	(int 4); не использовать пока
+\item max\_central\_angle	(int 4); не использовать пока
+\item type				тип связи(0 — снаружи; 1 — внутри) (int 4);
+\end{enumerate}
+\normalsize
+
+
+\noindent 
+Таблица Smpl\_Parts\_Lists, задающая идентификаторы списков частей образца
+\small
+\begin{enumerate}
+\item id         			 идентификатор списка частей образца (int 4);
+\end{enumerate}
+\normalsize
+
+
+\noindent 
+Таблица Smpl\_Parts\_Lists\_Parts, задающая списки частей образца
+\small
+\begin{enumerate}
+\item id\_partslist 		идентификатор списка частей образца (int 4);
+\item id\_part			идентификатор части образца (int 4);
+\end{enumerate}
+\normalsize
+
+
+\noindent 
+Таблица Smpl\_Parts\_Relations\_Lists, задающая идентификаторы списков связей частей образца
+\small
+\begin{enumerate}
+\item id			        	 идентификатор символа (int 4);
+\end{enumerate}
+\normalsize
+
+
+\noindent 
+Таблица Smpl\_Parts\_ Relations \_Lists\_Parts\_ Relations, задающая списки связей частей образца
+\small
+\begin{enumerate}
+\item id\_partsrelationslist          	идентификатор списка частей образца (int 4);
+\item id\_partsrelation                 	идентификатор части образца (int 4);
+\end{enumerate}
+\normalsize
+
+
+\noindent
+ Таблица Smpl\_ Samples, задающая совокупность образцов
+\small
+\begin{enumerate}
+\item id			     	идентификатор образца (int 4);
+\item id\_partslist		    	идентификатор списка частей для исследуемого изображения (int 4);
+\item id\_partsrelationslist	идентификатор списка связей частей для исследуемого изображения  (int 4);                                   
+\item presentation  		графическое описание образца (image   16);
+\item description            		описание образца (char   250);
+\end{enumerate}
+\normalsize
+
+\noindent
+\subsection*{СИМВОЛЫ}
+
+\noindent 
+Таблица Smbl\_Symbols, задающая совокупность символов
+\small
+\begin{enumerate}
+\item id			идентификатор символа (int 4);
+\item symbol                   	имя символа  (char    250);
+\item description            	описание символа (char   250);
+\item presentation          	графическое описание символа (image   16);
+\item id\_sampleslist 	идентификатор списка образцов, представляющих образец (int 4);
+\end{enumerate}
+\normalsize
+
+
+\noindent 
+Таблица Smbl\_Samples\_Lists, задающая идентификаторы списков образцов
+\small
+\begin{enumerate}
+\item id			идентификатор списка символов (int 4);
+\end{enumerate}
+\normalsize
+
+
+\noindent 
+Таблица Smbl\_Samples\_Lists\_ Samples, задающая списки образцов
+\small
+\begin{enumerate}
+\item id\_ sampleslist      	идентификатор списка образцов(int 4);
+\item id\_ sample      	идентификатор образца (int 4);
+\end{enumerate}
+
+\normalsize 
+
+\noindent 
+\subsection*{ИЗОБРАЖЕНИЯ}
+\noindent 
+Таблица Img\_Arc, задающая совокупность дуг изображения
+\small
+\begin{enumerate}
+\item id			идентификатор дуги (int 4);
+\item min\_sector           	минимально возможный угол сектора дуги (int 4);
+\item max\_sector          	максимально возможный угол сектора дуги (int 4);
+\item clockwise            	направление обхода (1 – по солнцу; -1 – против солнца; 0 – неопределенно) (int 4);
+\item bran\_beg            	кол-во ветвлений на начале
+\item bran\_end            	кол-во ветвлений на конце
+\item quan\_circle        	кол-во циклов, включающих дугу
+\end{enumerate}
+\normalsize
+
+
+\noindent 
+Таблица Img\_Arcs\_Lists, задающая идентификаторы списков дуг изображения
+\small
+\begin{enumerate}
+\item id			идентификатор списка дуг (int 4);
+\end{enumerate}
+\normalsize
+
+
+\noindent 
+Таблица Img\_Arcs\_Lists\_ Arcs, задающая списки дуг изображения
+\small
+\begin{enumerate}
+\item id\_arcslist		идентификатор списка дуг (int 4);
+\item id\_arc		идентификатор дуги (int 4);
+\item proportion		относительная величина дуги		
+\end{enumerate}
+\normalsize
+
+
+\noindent 
+Таблица Img\_Relations, задающая совокупность связей дуг изображения
+\small
+\begin{enumerate}
+\item id			идентификатор связи двух дуг (int 4);
+\item id\_arc1                 	идентификатор первой дуги (int 4);
+\item id\_arc2                 	идентификатор второй дуги (int 4);
+\item min\_angle           	минимально возможный угол пересечения дуг (int 4);
+\item max\_angle          	максимально возможный угол пересечения дуг (int 4);
+\item type			тип связи (0: конец – начало, 1: конец – конец, 2: начало – начало)
+\end{enumerate}
+\normalsize
+
+
+\noindent 
+Таблица Img\_Relations\_Lists, задающая идентификаторы списков связей дуг изображения
+\small
+\begin{enumerate}
+\item id			идентификатор списка связей дуг (int 4);
+\end{enumerate}
+\normalsize
+
+
+\noindent 
+Таблица Img\_Relations\_Lists\_Relations, задающая списки связей дуг изображения
+\small
+\begin{enumerate}
+\item id\_relationslist	идентификатор списка связей дуг (int 4);
+\item id\_relation		идентификатор связи двух дуг (int 4);
+\end{enumerate}
+\normalsize
+
+
+\noindent 
+Таблица Img\_Parts, задающая части изображения
+\small
+\begin{enumerate}
+\item id				идентификатор части изображения (int 4);
+\item id\_arcslist			идентификатор списка дуг для исследуемого изображения (int 4);
+\item id\_relationslist		идентификатор списка связей дуг для исследуемого изображения (int 4);
+\item hor\_angle			угол к горизонту для первой дуги в списке id\_arcslist (int 4);
+\item proportion			пропорция (float 8)
+\end{enumerate}
+\normalsize
+
+
+\noindent
+ Таблица Img\_Parts\_Lists, задающая идентификаторы списков частей изображения
+\small
+\begin{enumerate}
+\item id			идентификатор списка частей образца (int 4);
+\end{enumerate}
+\normalsize
+
+
+\noindent 
+Таблица Img\_Parts\_Lists\_Parts, задающая списки частей изображения
+\small
+\begin{enumerate}
+\item id\_partslist 	идентификатор списка частей образца (int 4);
+\item id\_part		идентификатор части образца (int 4);
+\end{enumerate}
+\normalsize
+
+
+\noindent 
+Таблица Img\_Parts\_Relations, задающая связи частей изображения
+\small
+\begin{enumerate}
+\item id			               идентификатор символа (int 4);
+\item id\_part1                		идентификатор части образца (int 4);
+\item id\_part2                 		идентификатор части образца (int 4);
+\item min\_pos\_angle		(int 4);
+\item max\_pos\_angle		(int 4);
+\item min\_central\_angle	(int 4); не использовать пока
+\item max\_central\_angle	(int 4); не использовать пока
+\item type				тип связи(0 — снаружи; 1 — внутри) (int 4);
+\end{enumerate}
+\normalsize
+
+
+\noindent 
+Таблица Img\_Parts\_Relations\_Lists, задающая идентификаторы списков связей частей изображения
+\small
+\begin{enumerate}
+\item id 			идентификатор символа (int 4);
+\end{enumerate}
+\normalsize
+
+
+\noindent 
+Таблица Img\_Parts\_ Relations \_Lists\_Parts\_ Relations, задающая списки связей частей изображения
+\small
+\begin{enumerate}
+\item id\_partsrelationslist          	идентификатор списка частей образца (int 4);
+\item id\_partsrelation                 идентификатор части образца (int 4);
+\end{enumerate}
+\normalsize
+
+
+\noindent 
+Таблица Img\_ Samples, задающая совокупность изображений
+\small
+\begin{enumerate}
+\item id			     	идентификатор образца (int 4);
+\item id\_partslist		    	идентификатор списка частей для исследуемого изображения (int 4);
+\item id\_partsrelationslist	идентификатор списка связей частей для исследуемого изображения  (int 4);                                   
+\item presentation	  	графическое описание образца (image   16);
+\item description           		описание образца (char   250);
+\end{enumerate}
+\normalsize
+
 
 %
 %Некоторый текст.
