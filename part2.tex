@@ -449,7 +449,14 @@ $(a_1,  a_2, ..., a_n)$  отношениям $H_1, H_2, ... , H_k$  не пре
 \end{theorem}
 Для облегчения понимания идеи доказательства основного результата, рассмотрим доказательство теоремы \ref{basic_theorem}. Основой его является представление декартова произведения конечных множеств.
 $$A_1 \times A_2 \times \ldots \times A_n$$
-в древовидной форме Tree~\cite{D9}.
+в древовидной форме Tree (Рис. \ref{tree}).
+
+\begin{figure*}[b]
+\includegraphics[width=\linewidth,keepaspectratio]{images/an_tbl1}
+\caption{Схема 1. Дерево Tree}
+\label{tree}
+\end{figure*}
+
 
 Определим более точно конечные множества 
 \begin{equation}
@@ -461,10 +468,6 @@ A_n = \{ a_{n,1}, a_{n,2}, ..., a_{n,m_n}\}; \\
 \end{array}
 \end{equation}
 
-%\begin{figure*}[b]
-%\includegraphics[width=\linewidth,keepaspectratio]{MartyanovKatashevtsev_tbl1}
-%\caption{Схема 1. Дерево Tree}
-%\end{figure*}
 
 Понятно, что таблица~1 является универсумом для любых таблиц реляционной БД с доменами $A_1, A_2,\ldots,A_n$. Т.е представление отношения $H$ в таблице состоит в пометке вершин $n$-го этажа, если путь от корня дерева до этой вершины $n$-го этажа, дает кортеж из отношения $H$.
 
@@ -504,13 +507,14 @@ Angle(re_{i,j})=(j,j)
 \end{array}
 \end{equation}
 
-Дерево $TreeImage$ (универсум (схема 2) для всех изображений, имеющих не более $n$ дуг, и $k$ вариантов дуг и связей дуг) строится по аналогии с деревом $Tree$ для декартова произведения
+Дерево $TreeImage$ (универсум (схема 2, рис. \ref{tree_image}) для всех изображений, имеющих не более $n$ дуг, и $k$ вариантов дуг и связей дуг) строится по аналогии с деревом $Tree$ для декартова произведения
 $$Arc_1 \times Rel_1 \times Arc_2 \times Rel_2 \times ... \times Rel_{n-1} \times Arc_n $$
 
-%\begin{figure}[b]
-%\includegraphics[width=\linewidth,keepaspectratio]{MartyanovKatashevtsev_tbl2}
-%\caption{Схема 2. Дерево TreeImage}
-%\end{figure}
+\begin{figure}[b]
+\includegraphics[width=\linewidth,keepaspectratio]{images/an_tbl2}
+\caption{Схема 2. Дерево TreeImage}
+\label{tree_image}
+\end{figure}
 
 Соглашения по представлению элементов схемы~2 следующие:
 \begin{enumerate}
@@ -745,7 +749,7 @@ $$V_{rel}, V_{arc} \subseteq V$$
 
 Предполагаем,  что анализируемое изображение и образцы имеют представления для всех элементов масштабного ряда $ScaleLine$. Таким образом, совокупность всех дуг $A$ четырехосновной а.с.\ref{eq:model} может быть представлено в виде
 \begin{equation}
-A = A_1 \bigcup A_2 \bigcup ... \bigcup A_n
+A = A_1 \cup A_2 \cup ... \cup A_n
 \label{eq:components_set}
 \end{equation}
 где  множества $A_i$ состоят из дуг, относящихся к $i$ - му элементу масштабного ряда. 
