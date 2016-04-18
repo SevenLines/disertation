@@ -1052,10 +1052,10 @@ FUNCTION {format.annoteurl}       %%%%%%%% правлено
 
 FUNCTION {article}
 { output.bibitem
-  author.before
+  author.after
   format.btitle "title" output.check
   new.slash
-  author.after
+  author.before
   new.dblslash
 %%journal emphasize "journal" output.check%% правлено
   journal "journal" output.check
@@ -1077,10 +1077,10 @@ FUNCTION {article}
 
 FUNCTION {book}
 { output.bibitem
-  author.before
+  author.after
   format.btitle "title" output.check
   new.slash
-  author.after
+  author.before
   editor.organization.after
   new.sentence
   format.number.series output
