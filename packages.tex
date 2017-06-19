@@ -38,6 +38,15 @@
 \usepackage[singlelinecheck=off,center]{caption}	% Многострочные подписи
 \usepackage{soul}									% Поддержка переносоустойчивых подчёркиваний и зачёркиваний
 \usepackage{subcaption}
+\usepackage{titlesec}
+
+\usepackage{etoolbox}
+
+\makeatletter
+\patchcmd{\ttlh@hang}{\parindent\z@}{\parindent\z@\leavevmode}{}{}
+\patchcmd{\ttlh@hang}{\noindent}{}{}{}
+\makeatother
+
 
 %%% Библиография %%%
 \usepackage{cite} % Красивые ссылки на литературу

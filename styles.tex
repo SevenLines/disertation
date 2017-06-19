@@ -23,8 +23,8 @@
 \graphicspath{{images/}} % Пути к изображениям
 
 %%% Цвета гиперссылок %%%
-\definecolor{linkcolor}{rgb}{0.9,0,0}
-\definecolor{citecolor}{rgb}{0,0.6,0}
+\definecolor{linkcolor}{rgb}{0,0,0}
+\definecolor{citecolor}{rgb}{0,0,0}
 \definecolor{urlcolor}{rgb}{0,0,1}
 \hypersetup{
     colorlinks, linkcolor={linkcolor},
@@ -34,6 +34,16 @@
 
 %%% Оглавление %%%
 \renewcommand{\cftchapdotsep}{\cftdotsep}
+
+\titleformat{\chapter}[block] 
+  {\bfseries\Large\centering}
+  {\MakeUppercase{\chaptertitlename} \thechapter .}
+  {8pt}
+  {}
+  []
+
+\titleformat*{\section}{\Large\bfseries\centering}
+\titleformat*{\subsection}{\large\bfseries\centering}
 
 %%% Математические высказывания %%%
 \newtheorem{definition}{Определение} \numberwithin{definition}{section}

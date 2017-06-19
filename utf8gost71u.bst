@@ -1407,6 +1407,29 @@ MACRO {tcs} {"Theoretical Computer Science"}
 
 READ
 
+FUNCTION {sortify}
+{ purify$
+}
+
+FUNCTION {presort}%#1
+{
+  author
+  "   "
+  *
+  year field.or.null sortify
+  *
+  "   "
+  *
+  title field.or.null
+  *
+  #1 entry.max$ substring$
+  'sort.key$ :=
+}
+
+
+ITERATE {presort}
+
+SORT
 
 STRINGS { longest.label }
 
