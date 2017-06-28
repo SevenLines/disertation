@@ -957,11 +957,12 @@ FUNCTION {author.before}
 {
   author empty$
     'skip$
-    {author num.names$ #4 <
-      {format.authors output
-       new.sentence}
-      'skip$
-    if$}
+    {format.authors output new.sentence}
+    %%{author num.names$ #4 <
+    %%  {format.authors output
+    %%   new.sentence}
+    %%  'skip$
+    %%if$}
   if$
 }
 
@@ -982,11 +983,12 @@ FUNCTION {author.after}
 {
   author empty$
     'skip$
-    {author num.names$ #3 >
-      {format.authors.after output
-       new.semicolumn }
-      'skip$
-    if$}
+    { author #1 "{ff }{vv }{ll}{, jj}" format.name$ output new.sentence}
+    %%{author num.names$ #3 >
+    %%  {format.authors.after output
+    %%   new.semicolumn }
+    %%  'skip$
+    %%if$}
   if$
 }
 FUNCTION {bookauthor.after}
@@ -1054,7 +1056,7 @@ FUNCTION {article}
 { output.bibitem
   author.after
   format.btitle "title" output.check
-  new.slash
+  " / " * write$ 
   author.before
   new.dblslash
 %%journal emphasize "journal" output.check%% правлено

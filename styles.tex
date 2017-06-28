@@ -11,6 +11,7 @@
 \clubpenalty=10000		% Запрещаем разрыв страницы после первой строки абзаца
 \widowpenalty=10000		% Запрещаем разрыв страницы после последней строки абзаца
 \linespread{1.4}
+\setlength{\parindent}{1.25cm}
 
 %%% Библиография %%%
 \makeatletter
@@ -31,19 +32,28 @@
     citecolor={citecolor}, urlcolor={urlcolor}
 }
 
-
 %%% Оглавление %%%
 \renewcommand{\cftchapdotsep}{\cftdotsep}
 
+
+\setlist{nolistsep}
+\setlist[itemize]{leftmargin=1.75cm}
+\renewcommand\labelitemi{--}
+
 \titleformat{\chapter}[block] 
-  {\bfseries\Large\centering}
-  {\MakeUppercase{\chaptertitlename} \thechapter .}
-  {8pt}
+  {\large\bfseries\centering}
+  {\thechapter. }
+  {0pt}
   {}
   []
+\titlespacing*{\chapter}{0pt}{-28pt}{6pt}
+\titlespacing*{\section}{0pt}{0pt}{0pt}
+\titlespacing*{\subsection}{0pt}{0pt}{0pt}  
+\titlespacing*{\subsubsection}{0pt}{0pt}{0pt}  
 
-\titleformat*{\section}{\Large\bfseries\centering}
-\titleformat*{\subsection}{\large\bfseries\centering}
+\titleformat*{\section}{\large\centering}
+\titleformat*{\subsection}{\large\centering}
+\titleformat*{\subsubsection}{\large\centering}
 
 %%% Математические высказывания %%%
 \newtheorem{definition}{Определение} \numberwithin{definition}{section}
@@ -55,3 +65,30 @@
 \newtheorem{proposition}{Предложение} \numberwithin{proposition}{section}
 \newtheorem{corollary}{Следствие} \numberwithin{corollary}{section}
 \newtheorem{remark}{Замечание} \numberwithin{remark}{chapter}      
+
+
+\fancyhf{}
+\fancyhead[C]{\thepage}
+\pagestyle{fancy}
+
+\makeatletter
+\def\thm@space@setup{%
+  \thm@preskip=\parskip \thm@postskip=0pt
+}
+\makeatother
+
+
+\setlength{\belowdisplayskip}{0pt} \setlength{\belowdisplayshortskip}{0pt}
+\setlength{\abovedisplayskip}{0pt} \setlength{\abovedisplayshortskip}{0pt}
+\setlength{\jot}{14pt}
+\raggedbottom
+
+% redefine the plain pagestyle
+\fancypagestyle{plain}{%
+\fancyhf{} % clear all header and footer fields
+\fancyhead[C]{\thepage} % except the center
+}
+\renewcommand\headrulewidth{0pt}
+
+%\captionsetup[figure]{}
+\captionsetup[table]{labelsep=newline}
