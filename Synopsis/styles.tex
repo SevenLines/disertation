@@ -38,13 +38,14 @@
 \graphicspath{{images/}} % Пути к изображениям
 
 %%% Цвета гиперссылок %%%
-\definecolor{linkcolor}{rgb}{0.9,0,0}
-\definecolor{citecolor}{rgb}{0,0.6,0}
+\definecolor{linkcolor}{rgb}{0,0,0}
+\definecolor{citecolor}{rgb}{0,0,0}
 \definecolor{urlcolor}{rgb}{0,0,1}
 \hypersetup{
     colorlinks, linkcolor={linkcolor},
     citecolor={citecolor}, urlcolor={urlcolor}
 }
+
 
 
 %%% Математические высказывания %%%
@@ -56,3 +57,9 @@
 \newtheorem{state}{Утверждение} \numberwithin{state}{section}
 \newtheorem{proposition}{Предложение} \numberwithin{proposition}{section}
 \newtheorem{corollary}{Следствие} \numberwithin{corollary}{section}
+
+\setlist{nolistsep}
+\setlist[itemize]{leftmargin=1.75cm}
+\renewcommand\labelitemi{--}
+
+\captionsetup[table]{labelsep=newline}

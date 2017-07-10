@@ -42,7 +42,7 @@
 
 \titleformat{\chapter}[block] 
   {\large\bfseries\centering}
-  {\thechapter. }
+  {\thechapter~ }
   {0pt}
   {}
   []
@@ -55,16 +55,19 @@
 \titleformat*{\subsection}{\large\centering}
 \titleformat*{\subsubsection}{\large\centering}
 
+%\theoremindent1\parindent
+
+
 %%% Математические высказывания %%%
-\newtheorem{definition}{Определение} \numberwithin{definition}{section}
-\newtheorem{theorem}{Теорема} \numberwithin{theorem}{section}
-\newtheorem*{theorem*}{Теорема}
-\newtheorem{lemma}{Лемма} \numberwithin{lemma}{section}
-\newtheorem*{lemma*}{Лемма} 
-\newtheorem{state}{Утверждение} \numberwithin{state}{section}
-\newtheorem{proposition}{Предложение} \numberwithin{proposition}{section}
-\newtheorem{corollary}{Следствие} \numberwithin{corollary}{section}
-\newtheorem{remark}{Замечание} \numberwithin{remark}{chapter}      
+\newtheorem{definition}{\indent Определение} \numberwithin{definition}{section}
+\newtheorem{theorem}{\indent Теорема} \numberwithin{theorem}{section}
+\newtheorem*{theorem*}{\indent Теорема}
+\newtheorem{lemma}{\indent Лемма} \numberwithin{lemma}{section}
+\newtheorem*{lemma*}{\indent Лемма} 
+\newtheorem{state}{\indent Утверждение} \numberwithin{state}{section}
+\newtheorem{proposition}{\indent Предложение} \numberwithin{proposition}{section}
+\newtheorem{corollary}{\indent Следствие} \numberwithin{corollary}{section}
+\newtheorem{remark}{\indent Замечание} \numberwithin{remark}{chapter}      
 
 
 \fancyhf{}
@@ -92,3 +95,14 @@
 
 %\captionsetup[figure]{}
 \captionsetup[table]{labelsep=newline}
+
+\let\oldthebibliography\thebibliography
+\let\endoldthebibliography\endthebibliography
+\renewenvironment{thebibliography}[1]{
+  \begin{oldthebibliography}{#1}
+    \setlength{\itemsep}{0em}
+    \setlength{\parskip}{0.1em}
+}
+{
+  \end{oldthebibliography}
+}
